@@ -1,36 +1,67 @@
 <!DOCTYPE html>
-<html lang="en" >
-<head>
-  <meta charset="UTF-8">
-  <title>Untitled</title>
-  
-
-</head>
-<body>
-<!-- partial:index.partial.html -->
-<!DOCTYPE html>
 <html lang="zh-Hant">
 <head>
     <meta charset="UTF-8">
-    <title>日幣換算台幣</title>
-    <script>
-        function convert() {
-            const rate = 0.25; // 假設1台幣 = 0.25台幣
-            const twd = document.getElementById("twd").value;
-            const jpy = twd * rate;
-            document.getElementById("result").innerText = `相當於 ${jpy.toFixed(2)} 日幣`;
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>陳誼嘉的匯率轉換器</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f0f0;
         }
-    </script>
+        .converter {
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        hr {
+            margin: 20px 0;
+            border: none;
+            height: 1px;
+            background-color: #ccc;
+        }
+        input {
+            margin: 10px;
+            padding: 5px;
+            width: 200px;
+            font-size: 16px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #007bff;
+            color: #ffffff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
 </head>
 <body>
-    <h1>日幣換算台幣</h1>
-    <label for="twd">日幣金額：</label>
-    <input type="number" id="twd" placeholder="輸入台幣金額">
-    <button onclick="convert()">換算</button>
-    <p id="result"></p>
-</body>
-</html>
-<!-- partial -->
-  
+    <div class="converter">
+        <h1>陳誼嘉的匯率轉換器</h1>
+        <hr>
+        <h2>日幣換算台幣</h2>
+        <input type="number" id="jpy" placeholder="輸入日幣 (JPY)">
+        <button onclick="convert()">轉換</button>
+        <p id="result"></p>
+    </div>
+    <script>
+        function convert() {
+            const jpy = document.getElementById('jpy').value;
+            const rate = 0.21; // 假設1日幣 = 0.21台幣，請根據實際匯率調整
+            const twd = jpy * rate;
+            document.getElementById('result').innerText = `${jpy} 日幣 = ${twd.toFixed(2)} 台幣`;
+        }
+    </script>
 </body>
 </html>
